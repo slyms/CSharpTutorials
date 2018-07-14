@@ -1,0 +1,18 @@
+﻿<Window x:Class="WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="300">
+    <Grid x:Name="SM_Calculator" RenderTransformOrigin="0,0" Background="BurlyWood">
+        <TextBox x:Name="textBox" Height="30" Margin="40,30,40,0" TextWrapping="Wrap" Text="SM CALCULATOR" VerticalAlignment="Top" Width="200" SpellCheck.IsEnabled="True" FontSize="20" HorizontalAlignment="Center" Background="Yellow" TextAlignment="Center"/>
+        <TextBox x:Name="TXB_1" HorizontalAlignment="Left" Height="46" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="42,80,0,0" FontSize="30"/>
+        <TextBox x:Name="TXB_2" HorizontalAlignment="Left" Height="46" Margin="42,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="30"/>
+        <Button x:Name="BT_Add" Content="Add" HorizontalAlignment="Left" Margin="50,200,50,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.388,4.007" Background="Green" Click="BT_Add_Click"/>
+        <Button x:Name="BT_Multiply" Content="Multiply" HorizontalAlignment="Left" Margin="50,250,50,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.606,6.023" Background="Blue" Click="BT_Multiply_Click"/>
+        <Button x:Name="BT_Substract" Content="Substract" HorizontalAlignment="Left" Margin="150,200,50,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.824,0.15" Background="Red" Click="BT_Substract_Click"/>
+        <Button x:Name="BT_Divide" Content="Divide" HorizontalAlignment="Left" Margin="150,250,50,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.533,-0.359" Background="Orange" Click="BT_Divide_Click"/>
+    </Grid>
+</Window>

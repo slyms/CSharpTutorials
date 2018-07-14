@@ -1,0 +1,46 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Google Custom Search Demo" Height="498.049" Width="800">
+
+    <Window.Resources>
+        <DataTemplate x:Key="searchResultTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding Path=Title}" />
+                <TextBlock>
+                  <Hyperlink NavigateUri="{Binding Path=Link}" RequestNavigate="Hyperlink_OnRequestNavigate">
+                    <TextBlock Text="{Binding Path=Link}"/>
+                  </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid Margin="2,0,-1.8,-27.2" Height="498" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="295*"/>
+            <ColumnDefinition Width="501*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Name="tbSearchTerm" HorizontalAlignment="Left" Height="23" Margin="211,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="263" Grid.ColumnSpan="2" FontSize="14"/>
+        <Button Name="btnSearch" Content="Search" Margin="213.2,43,212.2,0" VerticalAlignment="Top" Click="BtnSearch_Click" Grid.Column="1" FontSize="14"/>
+        <ListBox Name="lbSearchResult" HorizontalAlignment="Left" Height="295" Margin="28,131,0,0" VerticalAlignment="Top" Width="737" IsSynchronizedWithCurrentItem="True" ItemTemplate="{StaticResource searchResultTemplate}" Grid.ColumnSpan="2" FontSize="14"></ListBox>
+        <Label Content="Search something" HorizontalAlignment="Left" Margin="211,17,0,0" VerticalAlignment="Top" Width="151" Grid.ColumnSpan="2" FontSize="14"/>
+        <TextBlock Name="tbCurrentPage" Grid.Column="1" HorizontalAlignment="Left" Margin="93.2,431,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock Name="tbPrevious" Margin="276,431,448.2,15" Grid.ColumnSpan="2" FontSize="14">
+            <Hyperlink NavigateUri="#" RequestNavigate="Previous_RequestNavigate">Previous</Hyperlink>
+        </TextBlock>
+        <TextBlock Name="tbNext" Margin="162.2,431,282.2,15" Grid.Column="1" FontSize="14">
+            <Hyperlink NavigateUri="#" RequestNavigate="Next_RequestNavigate">Next</Hyperlink>
+        </TextBlock>
+        <TextBox Name="tbErrorMessage" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="36" Margin="28,83,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="737" Foreground="#FFE51010" BorderBrush="White" FontSize="14">
+            <TextBox.Background>
+                <ImageBrush/>
+            </TextBox.Background>
+        </TextBox>
+    </Grid>
+
+</Window>
+
