@@ -24,7 +24,25 @@ namespace TimHuynh___MovieRecommender
             if (result) //= if (result == true)
             {
                 //print out total number of movies and accepts user's commands
-                Console.WriteLine($"We have {MovieRecommender.MostPopularMovies2017.Count} movies in total.");
+                Console.WriteLine($"We have {MovieRecommender.MostPopularMovies2017.Count} movies in total:");
+
+                //Write all Object's properties from list
+                foreach (var i in MovieRecommender.MostPopularMovies2017)
+                {
+                    Console.WriteLine("1st Movie Name: {0}, Genre: {1}, IMDb Rating: {2}", i.MovieName, i.Genre, i.IMDbRating);
+                }
+
+                Console.WriteLine("\t");
+                /*
+                MostPopularMovies2017.ForEach(i => Console.WriteLine(i)); 
+                =
+                MostPopularMovies2017.ForEach(Console.WriteLine);
+                */
+
+                MovieRecommender.MostPopularMovies2017.ForEach(i => Console.WriteLine("2nd Movie Name: {0}, Genre: {1}, IMDb Rating: {2}", i.MovieName, i.Genre, i.IMDbRating));
+
+                Console.WriteLine("Your commands: a - Action, c - Comedy, r - Romance, l - list recommended movies, e - Exit program");
+                MovieRecommender.ProcessUserInput();
             }
             else
             {
