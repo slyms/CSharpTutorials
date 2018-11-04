@@ -1,5 +1,6 @@
 ﻿using System;
 
+//13. Data Types
 public class DataTypes
 {
     static void DataTypesDemo()
@@ -29,7 +30,7 @@ public class DataTypes
         int c, d;
     }
 
-    //Casting
+    //14. Casting
     public static void Casting()
     {
         int n;
@@ -46,8 +47,8 @@ public class DataTypes
 
         //Exception: decimal requires Explicit in both directions
         decimal d = 10.01M;
-        f = (float) d; //Explicit casting
-        d = (decimal) f; //Explicit casting
+        f = (float) d; //Explicit casting both directions
+        d = (decimal) f; //Explicit casting both directions
 
         byte b1, b2, b3;
         b1 = 10;
@@ -66,8 +67,8 @@ public class DataTypes
         {
             e = (byte)m;
         }
-        //Result: 0 - Compiler takes only 8 last digits for byte casting
-        Console.WriteLine("d = (byte)m: " + e);
+        //Result: 0 - m = 256, Compiler takes only 8 last digits for byte casting
+        Console.WriteLine("e = (byte)m: " + e);
 
         //Char
         int p;
@@ -76,6 +77,7 @@ public class DataTypes
         Console.WriteLine("n (number representation): " + n);
         //c = n; //Invalid
         c = (char)n; //Explicit
+        Console.WriteLine("c (character representation): " + c);
 
         //Bool - no casting available
         bool bo = true;

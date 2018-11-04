@@ -9,8 +9,7 @@ class Program1
     //Main - Entry Point & Exit Point of App
     static int Main(string[] args)
     {
-        Console.WriteLine("Hello World 1" + args[0]);
-        //Console.ReadLine();
+        Console.WriteLine("Hello World 1 " + args[0]);
 
         DataTypes.Casting();
 
@@ -29,7 +28,7 @@ class Program2
     //Main - but Program1 set as Startup Object for Project
     static int Main(string[] args)
     {
-        Console.WriteLine("Hello World 2" + args[0]);
+        Console.WriteLine("Hello World 2 " + args[0]);
         Console.ReadLine();
 
         return 0;
@@ -40,13 +39,13 @@ public class ProgramMain
 {
     public static void Main(string[] args)
     {
-        /*
+        /*15. String*/
         string s;
         s = "Micro";
         s = s + "soft";
         Console.WriteLine("s: " + s);
 
-        //String - value is not changed
+        //String - value is not changed within existing Variable
         s.Replace("c", "K");
         Console.WriteLine("s.Replace: " + s);
 
@@ -66,7 +65,9 @@ public class ProgramMain
         System.Text.StringBuilder sb = new System.Text.StringBuilder(s);
         for (int i = 0; i < 100; i++)
         {
+            //
             sb.Append("A");
+            //Length of generated string + Srting Builder capazity (memory size)
             Console.WriteLine(sb.Length + " " + sb.Capacity);
         }
         s = sb.ToString();
@@ -89,30 +90,31 @@ public class ProgramMain
         //Parsing
         s = "100";
         n = int.Parse(s);
-        Console.WriteLine("n: " + s);
+        Console.WriteLine("Parse int n: " + s);
 
         s = "true";
         bool bo = bool.Parse(s);
-        Console.WriteLine("bo: " + s);
+        Console.WriteLine("Parse bool bo: " + s);
 
         s = "10.01";
         double d = double.Parse(s);
-        Console.WriteLine("d: " + s);
+        Console.WriteLine("Parse double d: " + s);
 
         //Char & String - different Data Types
+        //char cannot be directly assigned to string
         s = "A";
         //char c = s;
         char c = char.Parse(s);
-        Console.WriteLine("c: " + s);
+        Console.WriteLine("Parse char c: " + s);
 
         //Char "A" assiged to int = 65
-        //String "A" assigned to int = Exception
-        s = "A";
-        //n = int.Parse();
-        Console.WriteLine(n);
+        //String "A" assigned to int = Exception - input string was not in a correct format - parsed string must be numeric
+        //s = "A";
+        //n = int.Parse(s);
+        //Console.WriteLine("Parse int s: " + n);
 
-        //Parse - check
-        s = "100a";
+        //Parse - check is value is parsable
+        s = "100s";
         bool success;
         success = int.TryParse(s, out n);
         Console.WriteLine("TryParse: " + n + " " + success);
@@ -123,6 +125,7 @@ public class ProgramMain
         Console.WriteLine("TryParse: " + bol + " " + success);
 
         //Sum of two numbers
+        //n1, n2 - command line arguments
         int n1, n2;
         n1 = int.Parse(args[0]);
         n2 = int.Parse(args[1]);
@@ -130,6 +133,7 @@ public class ProgramMain
 
         NumberInput();
 
+        //16. Object Boxing & Unboxing
         //Object type - allows any Data Type
         ObjectMethod(10);
         ObjectMethod(true);
@@ -185,7 +189,7 @@ public class ProgramMain
         ArrayDemo.ArrayMethodMax();
 
         ArrayDemo.ArrayMethodMulti();
-        */
+        
         MethodsDemo.SayHello("Sylwester");
         MethodsDemo.SayHello("Annie");
 
@@ -193,7 +197,8 @@ public class ProgramMain
 
     }
 
-    //Convert numeric input to character
+    //15. String
+    //Convert numeric input to character (Unicode)
     static void NumberInput()
     {
         string str;
@@ -201,12 +206,13 @@ public class ProgramMain
         str = Console.ReadLine();
         int n = 100;
         if (int.TryParse(str, out n))
-            Console.WriteLine("n: " + n + "(char)n: " + ((char)n));
+            Console.WriteLine("n: " + n + ", (char)n: " + ((char)n));
         else
             Console.WriteLine("Invalid number");
 
     }
 
+    //16. Object Boxing & Unboxing
     //Object Type
     static void ObjectMethod(object n)
     {
@@ -218,9 +224,9 @@ public class ProgramMain
     {
         int n = 10;
         object ob;
-        ob = n; //Boxing - Value Type to Reference Type (Object)
-                //Math operations not allowed on Object Type
-                //ob = ob + 1;
+        ob = n; //Boxing - implicit casting of int to object (Value Type to Reference Type)
+        //Math operations not allowed on Object Type
+        //ob = ob + 1;
 
         //InvalidCastException
         int m;
@@ -229,6 +235,7 @@ public class ProgramMain
         //m = (int)ob; //Unboxing - Reference Type Object -> Value Type
     }
 
+    //15. Boxing & Unboxing
     //Var - Type Inference
     static void VarTypeInference()
     {
@@ -244,6 +251,7 @@ public class ProgramMain
         return 0;
     }
 
+    //15. Boxing & Unboxing
     //Dynamic Type
     static void DynamicType()
     {
