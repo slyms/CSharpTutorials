@@ -131,7 +131,7 @@ public class ProgramMain
         n2 = int.Parse(args[1]);
         Console.WriteLine("n1 + n2: " + (n1 + n2));
 
-        NumberInput();
+        //NumberInput();
 
         //16. Object Boxing & Unboxing
         //Object type - allows any Data Type
@@ -197,22 +197,7 @@ public class ProgramMain
 
     }
 
-    //15. String
-    //Convert numeric input to character (Unicode)
-    static void NumberInput()
-    {
-        string str;
-        Console.WriteLine("Input a number: ");
-        str = Console.ReadLine();
-        int n = 100;
-        if (int.TryParse(str, out n))
-            Console.WriteLine("n: " + n + ", (char)n: " + ((char)n));
-        else
-            Console.WriteLine("Invalid number");
-
-    }
-
-    //16. Object Boxing & Unboxing
+    #region 16. Object Boxing & Unboxing
     //Object Type
     static void ObjectMethod(object n)
     {
@@ -235,7 +220,7 @@ public class ProgramMain
         //m = (int)ob; //Unboxing - Reference Type Object -> Value Type
     }
 
-    //15. Boxing & Unboxing
+    //16. Boxing & Unboxing
     //Var - Type Inference
     static void VarTypeInference()
     {
@@ -251,7 +236,7 @@ public class ProgramMain
         return 0;
     }
 
-    //15. Boxing & Unboxing
+    //16. Boxing & Unboxing
     //Dynamic Type
     static void DynamicType()
     {
@@ -270,39 +255,47 @@ public class ProgramMain
         d4 = d1 + (d2 + d3);
         Console.WriteLine("Dynamic Data Type: " + d4 + "\r\n" + "Ver Length: " + d4.Length);
     }
+    #endregion
 
-    //Constant
+    #region 17. Constants
     static void Constant()
     {
         const double PI = 3.14;
 
         double area = PI * 10 * 10;
-
+        
         Console.WriteLine("area: " + area);
     }
 
-    //Enum
+    //17. Enum
     static void Enum()
     {
+        //Variable for holding day of the week
         string wd = "Monday";
+
+        //Inproper value for weekday might still be added
         wd = "Holiday";
 
         Weekday firstday;
         firstday = Weekday.Sun;
-
+        
         int n = 10;
         n = 1;
         firstday = (Weekday)n;
-        //Enum can be converted to String
+        //Enum can be converted to String - or shown as int (casting)
         Console.WriteLine("Enum:" + firstday.ToString() + " " + firstday + " " + (int)firstday);
 
+        //No Type Safety - No Exception
+        //Dev has to make sure value is within Enum range
         n = 8;
+        //Casting int to value from Enum - but there is no corresponding value
         firstday = (Weekday)n;
         Console.WriteLine("Enum:" + firstday.ToString() + " " + firstday + " " + (int)firstday);
 
         Status status;
         status = Status.Active;
     }
+    //Enum Constants are assigned gradual int values
     enum Weekday
     {
         Sun = 1, Mon, Tue, Wed, Thu, Fri, Sat
@@ -312,20 +305,29 @@ public class ProgramMain
     {
         Active, Inactive, Unknown
     }
+    #endregion
 
+    #region 18. Operators
     static void OperatorsArithmetic()
     {
+        float no1, no2, result;
+        no1 = 10;
+        no2 = 0;
+        result = no1 / no2;
+        Console.WriteLine("OperatorsArithmetic result:" + result);
+
         float n1, n2;
         n1 = -31;
-        n2 = 5;
-        float res = n1 % n2;
+        n2 = 0;
+        float res = n1 / n2;
 
+        //Check if result is positive/negative
         if (float.IsInfinity(res))
-            Console.WriteLine("res Infinity");
+            Console.WriteLine("OperatorsArithmetic res: Infinity");
         else if (float.IsNaN(res))
-            Console.WriteLine("res NAN");
+            Console.WriteLine("OperatorsArithmetic res: NAN");
         else
-            Console.WriteLine("res: " + res);
+            Console.WriteLine("OperatorsArithmetic res: " + res);
     }
 
     static void OperatorsLogic()
@@ -337,9 +339,9 @@ public class ProgramMain
         n1 = n1 || n2; //OR
         n2 = n1 ^ n2;  //XOR
         n3 = !n1;      //NOT
-        Console.WriteLine("n1 && n2: " + n1);
-        Console.WriteLine("n1 ^ n2: " + n2);
-        Console.WriteLine("n3: " + n3);
+        Console.WriteLine("OperatorsLogic n1 && n2: " + n1);
+        Console.WriteLine("OperatorsLogic n1 ^ n2: " + n2);
+        Console.WriteLine("OperatorsLogic n3: " + n3);
     }
 
     static void OperatorsTernary()
@@ -348,7 +350,7 @@ public class ProgramMain
         n1 = 10;
         n2 = 50;
         max = (n1 > n2) ? n1 : n2;
-        Console.WriteLine("max: " + max);
+        Console.WriteLine("OperatorsTernary max: " + max);
     }
 
     static void OperatorsIncrement()
@@ -369,18 +371,20 @@ public class ProgramMain
     static void OperatorBitwise()
     {
         int n1, n2, n3, n4;
-        n1 = 11; //bit: 0000 1011
+        n1 = 13; //bit: 0000 1011
         n2 = n1 << 1; //bit: 0001 0110
-        n3 = n1 & 10; // 1011 && 1000 = 1000
-        n4 = n1 | 10; // 1011 || 1000 = 1011
+        n3 = n1 & 12; // 1011 && 1000 = 1000
+        n4 = n1 | 12; // 1011 || 1000 = 1011
         Console.WriteLine("n2 = n1 << 1: " + n2);
         Console.WriteLine("n3 = n1 & 10: " + n3);
         Console.WriteLine("n4 = n1 | 10: " + n4);
     }
+    #endregion
 
+    #region 19. Control Statements
+    //IF ELSE
     static void ControlStatementsIfElse()
     {
-        //IF ELSE
         int n1, n2;
         n1 = n2 = 10;
         if (n1 > n2)
@@ -391,6 +395,7 @@ public class ProgramMain
             Console.WriteLine("n1 and n2 are equal");
     }
 
+    //IF ELSE
     static void ControlStatementsEvenOdd(string[] argsEvenOdd)
     {
         int n1;
@@ -399,6 +404,7 @@ public class ProgramMain
             Console.WriteLine("argsEvenOdd is not provided in input");
         //argsEvenOdd is string[]
         //Try to parse argsEvenOdd to int, if succeded, put result in n1
+        //Try parse returns bool = if bool
         else if (int.TryParse(argsEvenOdd[0], out n1))
         {
             //Check if n1 is odd or not
@@ -411,6 +417,7 @@ public class ProgramMain
             Console.WriteLine("Only number is allowed");
     }
 
+    //SWITCH
     public static void ControlSwitch()
     //Print person's grades
     {
@@ -439,18 +446,19 @@ public class ProgramMain
                 Console.WriteLine("Excellent");
                 break;
             default:
-                Console.WriteLine("Invalid Grade");
+                Console.WriteLine("Invalid grade");
                 break;
         }
     }
 
+    //WHILE
     public static void ControlWhile()
     {
         int n = 0;
         while (n < 10)
         {
             n++;
-            Console.WriteLine("Hello n" + n);
+            Console.WriteLine("Hello n times" + n);
         }
 
         int m = 0;
@@ -461,10 +469,11 @@ public class ProgramMain
                 continue; //continue - stop executing rest of loop & continue with next iteration
             if (m == 7)
                 break;   //break - come out of loop
-            Console.WriteLine("Hello m" + m);
+            Console.WriteLine("Hello m times" + m);
         }
     }
 
+    //FOR LOOP
     public static void ControlFor()
     {
         int n;
@@ -476,8 +485,10 @@ public class ProgramMain
         Console.WriteLine(s);
     }
 
+    //FOR EACH
     public static void ControlForEach()
     {
+        //Print all command line args
         Console.WriteLine("ControlForEach() Input: ");
         string[] argsForEach = new string[] { Console.ReadLine() };
 
@@ -486,11 +497,13 @@ public class ProgramMain
             Console.WriteLine("For: " + argsForEach[i]);
         }
 
+        //Works same as above For loop
         foreach (string s in argsForEach)
         {
             Console.WriteLine("ForEach: " + s);
         }
     }
+    #endregion
 
     public static void Exercise()
     {
@@ -505,6 +518,7 @@ public class ProgramMain
         }
     }
 
+    #region Imperial March
     public static void ImperialMarch()
     {
         SpeechSynthesizer synthIM = new SpeechSynthesizer();
@@ -582,6 +596,7 @@ public class ProgramMain
             */
         }
     }
+    #endregion
 }
 
 

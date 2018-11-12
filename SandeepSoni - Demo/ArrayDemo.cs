@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//20. Arrays
 namespace SandeepSoni___Demo
 {
     public static class ArrayDemo
@@ -15,9 +16,12 @@ namespace SandeepSoni___Demo
 
             //Declaration
             int[] arForN;
+            //arForN - local Variable of type int Array on Stack & Reference to Array of n ints on heap
+            //new int[n] - Array
+            //new int[n] - Array is dynamic = it's size can be a Variable which value will be calculated only at runtime
             arForN = new int[n];
             //Initialization
-            //1
+            //1 - within Declaration
             int[] arForBrackets = { 1, 2, 3, 4 };
             //2
             arForBrackets = new int[] { 10, 20, 30, 40 };
@@ -27,10 +31,22 @@ namespace SandeepSoni___Demo
             arForBrackets[2] = 300;
             arForBrackets[3] = 100;
 
+            //arForN.Length - length of Array
             for (int i = 0; i < arForN.Length; i++)
             {
                 Console.WriteLine("arForN: " + arForN[i]);
             }
+
+            //Copy data from Array
+            //Generic code - copy in respect of shorter Array - set smaller size
+            Array.Copy(arForN, arForBrackets, arForBrackets.Length < arForN.Length ? arForBrackets.Length : arForN.Length);
+
+            Console.WriteLine("\nCopied arForN to arForBrackets :");
+            for (int i = 0; i < arForBrackets.Length; i++)
+            {
+                Console.WriteLine("arForBrackets " + arForBrackets[i]);
+            }
+
             //Sort
             Console.WriteLine("\nBefore sort: ");
             for (int i = 0; i < arForBrackets.Length; i++)
@@ -43,17 +59,7 @@ namespace SandeepSoni___Demo
             for (int i = 0; i < arForBrackets.Length; i++)
             {
                 Console.WriteLine("arForBrackets: " + arForBrackets[i]);
-            }
-
-            //Copy data from Array
-            //Generic code - copy in respect of shorter Array
-            Array.Copy(arForN, arForBrackets, arForBrackets.Length < arForN.Length ? arForBrackets.Length : arForN.Length);
-
-            Console.WriteLine("\nCopied arForN to arForBrackets :");
-            for (int i = 0; i < arForBrackets.Length; i++)
-            {
-                Console.WriteLine("arForBrackets " + arForBrackets[i]);
-            }
+            }            
 
             //Read line of characters, convert it to Array
             Console.WriteLine("Enter a series of numbers");
