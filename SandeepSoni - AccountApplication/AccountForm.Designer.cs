@@ -56,7 +56,7 @@
             this.Id.Location = new System.Drawing.Point(12, 23);
             this.Id.Name = "Id";
             this.Id.Size = new System.Drawing.Size(16, 13);
-            this.Id.TabIndex = 0;
+            this.Id.TabIndex = 1;
             this.Id.Text = "Id";
             this.Id.Click += new System.EventHandler(this.Id_Click);
             // 
@@ -66,7 +66,7 @@
             this.Name.Location = new System.Drawing.Point(115, 23);
             this.Name.Name = "Name";
             this.Name.Size = new System.Drawing.Size(35, 13);
-            this.Name.TabIndex = 2;
+            this.Name.TabIndex = 3;
             this.Name.Text = "Name";
             // 
             // Balance
@@ -75,7 +75,7 @@
             this.Balance.Location = new System.Drawing.Point(221, 23);
             this.Balance.Name = "Balance";
             this.Balance.Size = new System.Drawing.Size(46, 13);
-            this.Balance.TabIndex = 4;
+            this.Balance.TabIndex = 5;
             this.Balance.Text = "Balance";
             // 
             // txtId
@@ -83,28 +83,28 @@
             this.txtId.Location = new System.Drawing.Point(12, 49);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(100, 20);
-            this.txtId.TabIndex = 1;
+            this.txtId.TabIndex = 2;
             // 
             // txtBalance
             // 
             this.txtBalance.Location = new System.Drawing.Point(224, 49);
             this.txtBalance.Name = "txtBalance";
             this.txtBalance.Size = new System.Drawing.Size(100, 20);
-            this.txtBalance.TabIndex = 5;
+            this.txtBalance.TabIndex = 6;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(118, 49);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 20);
-            this.txtName.TabIndex = 3;
+            this.txtName.TabIndex = 4;
             // 
             // btnCreate
             // 
             this.btnCreate.Location = new System.Drawing.Point(12, 75);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(100, 43);
-            this.btnCreate.TabIndex = 6;
+            this.btnCreate.TabIndex = 7;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
@@ -114,7 +114,7 @@
             this.btnSet.Location = new System.Drawing.Point(118, 75);
             this.btnSet.Name = "btnSet";
             this.btnSet.Size = new System.Drawing.Size(100, 43);
-            this.btnSet.TabIndex = 7;
+            this.btnSet.TabIndex = 8;
             this.btnSet.Text = "Set";
             this.btnSet.UseVisualStyleBackColor = true;
             this.btnSet.Click += new System.EventHandler(this.btnSet_Click);
@@ -124,7 +124,7 @@
             this.btnGet.Location = new System.Drawing.Point(224, 75);
             this.btnGet.Name = "btnGet";
             this.btnGet.Size = new System.Drawing.Size(100, 43);
-            this.btnGet.TabIndex = 8;
+            this.btnGet.TabIndex = 9;
             this.btnGet.Text = "Get";
             this.btnGet.UseVisualStyleBackColor = true;
             this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
@@ -134,7 +134,7 @@
             this.btnClear.Location = new System.Drawing.Point(12, 124);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(100, 43);
-            this.btnClear.TabIndex = 9;
+            this.btnClear.TabIndex = 10;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -144,7 +144,7 @@
             this.btnDestroy.Location = new System.Drawing.Point(118, 124);
             this.btnDestroy.Name = "btnDestroy";
             this.btnDestroy.Size = new System.Drawing.Size(100, 43);
-            this.btnDestroy.TabIndex = 10;
+            this.btnDestroy.TabIndex = 11;
             this.btnDestroy.Text = "Destroy";
             this.btnDestroy.UseVisualStyleBackColor = true;
             this.btnDestroy.Click += new System.EventHandler(this.btnDestroy_Click);
@@ -154,7 +154,7 @@
             this.btnGC.Location = new System.Drawing.Point(224, 124);
             this.btnGC.Name = "btnGC";
             this.btnGC.Size = new System.Drawing.Size(100, 43);
-            this.btnGC.TabIndex = 11;
+            this.btnGC.TabIndex = 12;
             this.btnGC.Text = "GC";
             this.btnGC.UseVisualStyleBackColor = true;
             this.btnGC.Click += new System.EventHandler(this.btnGC_Click);
@@ -164,7 +164,7 @@
             this.btnDeposit.Location = new System.Drawing.Point(12, 222);
             this.btnDeposit.Name = "btnDeposit";
             this.btnDeposit.Size = new System.Drawing.Size(100, 43);
-            this.btnDeposit.TabIndex = 13;
+            this.btnDeposit.TabIndex = 15;
             this.btnDeposit.Text = "Deposit";
             this.btnDeposit.UseVisualStyleBackColor = true;
             this.btnDeposit.Click += new System.EventHandler(this.btnDeposit_Click);
@@ -184,7 +184,7 @@
             this.btnWithdraw.Location = new System.Drawing.Point(224, 222);
             this.btnWithdraw.Name = "btnWithdraw";
             this.btnWithdraw.Size = new System.Drawing.Size(100, 43);
-            this.btnWithdraw.TabIndex = 15;
+            this.btnWithdraw.TabIndex = 17;
             this.btnWithdraw.Text = "Withdraw";
             this.btnWithdraw.UseVisualStyleBackColor = true;
             this.btnWithdraw.Click += new System.EventHandler(this.btnWithdraw_Click);
@@ -201,7 +201,7 @@
             this.btnTemp.Location = new System.Drawing.Point(12, 171);
             this.btnTemp.Name = "btnTemp";
             this.btnTemp.Size = new System.Drawing.Size(100, 43);
-            this.btnTemp.TabIndex = 17;
+            this.btnTemp.TabIndex = 13;
             this.btnTemp.Text = "Temp";
             this.btnTemp.UseVisualStyleBackColor = true;
             this.btnTemp.Click += new System.EventHandler(this.btnTemp_Click);

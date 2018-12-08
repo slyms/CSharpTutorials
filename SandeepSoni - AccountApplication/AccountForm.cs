@@ -13,7 +13,9 @@ namespace SandeepSoni___AccountApplication
 {
     public partial class AccountForm : Form
     {
-        Account a; //a - Reference Variable of Type Account - Account is a Class; it's not an Account Object
+        //a - Reference Variable of Type Account - Account is a Class; it's not an Account Object
+        //a - Member of AccountForm Class -> all Methods inside AccountForm can access "a"
+        Account a; //Declaration
 
         public AccountForm()
         {
@@ -21,24 +23,30 @@ namespace SandeepSoni___AccountApplication
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
-        {    
+        {
             //Create button - Constructor is called 3x
-            a = new Account();
-            Account a1;
-            a1 = new Account("Test", 10000); //1st param '1' is deleted <- now id is autoincremented
+            //Constructor Default 
+            Account a = new Account(); //Initialisation
+
+            //Constructor Parameterized 
+            Account a1 = new Account("Test", 10000); //1st param '1' is deleted <- now id is autoincremented
+
+            //Constructor Copy
             Account a2 = new Account(a1);
         }
 
         private void btnSet_Click(object sender, EventArgs e)
         {
-            //Get data from GUI form controls calculator fields
+            //Get data from GUI form controls calculator fields 
+            //-> put data into Object on Heap 
             //a.Id = int.Parse(txtId.Text); //Comment <- now id is autoincremented
             a.Name = txtName.Text;
             //a.Balance = decimal.Parse(txtBalance.Text);
             a.Deposit(decimal.Parse(txtBalance.Text));
-            //a.Balance = 1000000; = Impossible - Balance Set Property is commented out
+            //a.Balance = 1000000; //= Impossible - Balance Set Property is commented out
         }
 
+        //Get data from Object on Heap to GUI
         private void btnGet_Click(object sender, EventArgs e)
         {
             txtId.Text = a.Id.ToString();
@@ -50,7 +58,7 @@ namespace SandeepSoni___AccountApplication
         {
             txtId.Text = "";
             txtName.Text = "";
-            txtBalance.Clear(); //Clears field
+            txtBalance.Clear(); //Clears field - ready-made Method
         }
 
         private void btnDestroy_Click(object sender, EventArgs e)

@@ -18,9 +18,10 @@ namespace SandeepSoni___Demo
             int[] arForN;
             //arForN - local Variable of type int Array on Stack & Reference to Array of n ints on heap
             //new int[n] - Array
-            //new int[n] - Array is dynamic = it's size can be a Variable which value will be calculated only at runtime
+            //new int[n] - Array is dynamic = now it's length = 0 - common practice, when we don't know how much data to expect
+            //Array size can be a Variable which value will be calculated only at runtime
             arForN = new int[n];
-            //Initialization
+            //Initialization - some value is set
             //1 - within Declaration
             int[] arForBrackets = { 1, 2, 3, 4 };
             //2
@@ -30,6 +31,9 @@ namespace SandeepSoni___Demo
             arForBrackets[1] = 400;
             arForBrackets[2] = 300;
             arForBrackets[3] = 100;
+
+            
+            int[] table = new int[0];
 
             //arForN.Length - length of Array
             for (int i = 0; i < arForN.Length; i++)
@@ -64,7 +68,7 @@ namespace SandeepSoni___Demo
             //Read line of characters, convert it to Array
             Console.WriteLine("Enter a series of numbers");
             string str = Console.ReadLine();
-            //String spli to construct an Array
+            //String split to construct an Array
             string[] arrayString = str.Split(' ');
 
             foreach (string s in arrayString)
@@ -79,13 +83,18 @@ namespace SandeepSoni___Demo
                 int a = int.Parse(s);
                 tmp += a;                
             }
-            //Show average of input, 1.0 * tmp = to have double
+            //Show average of input, 1.0 * tmp = to have: double / int = double
             Console.WriteLine("Average: " + 1.0 * tmp / arrayString.Length);
             Console.WriteLine("Sum: " + tmp);
         }
 
+        //Reqs:
+        //1.Ask for number of values
+        //2.Read all those values
+        //3.Print max value of all those values
         public static void ArrayMethodMax()
         {
+            //Console.Write - cursor stays on same line
             Console.Write("Enter the number of values to be compared: ");
 
             int n;
@@ -95,7 +104,8 @@ namespace SandeepSoni___Demo
             int[] arInt = new int[n];
             for (int i = 0; i < n; i++)
             {
-                Console.WriteLine("Enter the " + (i + 1) + "th value: ");
+                //i + 1 -> 'Enter the...' starts from 1, not 0
+                Console.Write("Enter the " + (i + 1) + "th value: ");
                 arInt[i] = int.Parse(Console.ReadLine());
             }
             for (int i = 0; i < arInt.Length; i++)
@@ -105,6 +115,18 @@ namespace SandeepSoni___Demo
             //Print max of all values
             int maxValue = arInt.Max();
             Console.WriteLine("maxValue: " + maxValue);
+            Console.WriteLine("Is this correct?");
+            Console.ReadLine();
+
+            //Print max of all values - Soni alternative
+            int maxVal = int.MinValue;
+            foreach (int i in arInt)
+            {
+                if (i > maxVal)
+                    maxVal = i;
+            }
+            Console.WriteLine("Max (Soni alternative): " + maxVal);
+            Console.ReadLine();
         }
 
         public static void ArrayMethodMulti()
@@ -134,11 +156,15 @@ namespace SandeepSoni___Demo
             Console.WriteLine(arrayMultiBrackets[1, 0] + " " + arrayMultiBrackets[1, 1] + " " + arrayMultiBrackets[1, 2]);
             Console.WriteLine("arrayMultiBrackets.Length: " + arrayMultiBrackets.Length);
 
-            int[,,] arrayMultiThreeDim = new int [2, 3, 2] { { { 1, 1 }, { 1, 2 }, { 1, 3 } }, {{2, 1}, {2, 2}, {2, 3}} };
+            int[,,] arrayMultiThreeDim = new int [2, 3, 4] { {{1, 1, 1, 1}, {1, 2, 2, 2}, { 1, 3, 3, 3}}, {{2, 1, 1, 1}, {2, 2, 2, 2}, {2, 3, 3, 3}} };
             Console.WriteLine("arrayMultiThreeDim.Rank - no of dimensions: " + arrayMultiThreeDim.Rank);
             Console.WriteLine(arrayMultiThreeDim.GetLength(0));
             Console.WriteLine(arrayMultiThreeDim.GetLength(1));
             Console.WriteLine(arrayMultiThreeDim.GetLength(2));
+
+            int[,] array = new int[2, 3] { { 44, 55, 66 }, { 77, 88, 99 } };
+            Console.WriteLine(array[0, 0] + " " + array[0, 1] + " " + array[0, 2]);
+            Console.WriteLine(array[1, 0] + " " + array[1, 1] + " " + array[1, 2]);
         }
     }
 }

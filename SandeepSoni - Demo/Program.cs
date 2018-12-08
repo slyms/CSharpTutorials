@@ -39,7 +39,7 @@ public class ProgramMain
 {
     public static void Main(string[] args)
     {
-        /*15. String*/
+        /*15. String
         string s;
         s = "Micro";
         s = s + "soft";
@@ -127,9 +127,9 @@ public class ProgramMain
         //Sum of two numbers
         //n1, n2 - command line arguments
         int n1, n2;
-        n1 = int.Parse(args[0]);
-        n2 = int.Parse(args[1]);
-        Console.WriteLine("n1 + n2: " + (n1 + n2));
+        //n1 = int.Parse(args[0]);
+        //n2 = int.Parse(args[1]);
+        //Console.WriteLine("n1 + n2: " + (n1 + n2));
 
         //NumberInput();
 
@@ -192,8 +192,9 @@ public class ProgramMain
         
         MethodsDemo.SayHello("Sylwester");
         MethodsDemo.SayHello("Annie");
-
+        */
         MethodsDemo.Adding();
+
 
     }
 
