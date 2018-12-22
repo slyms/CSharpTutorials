@@ -37,7 +37,9 @@ namespace SandeepSoni___Demo
                 _MinBalance = value;
             }
         }
-        private static int _PrevId; //Previous id of Object
+
+        //Previous id of Object - common for all Objects inside this Class
+        private static int _PrevId; 
         
         //Requirement: Id should be set only once
         public int? Id
@@ -163,13 +165,24 @@ namespace SandeepSoni___Demo
                 this.Balance -= amount;
         }
 
+        //31.2 Static Methods
         //Req: compare 2 accounts, return balance which is greater
+        //Static - current Object is not used, so it can be Static
         public static Account GetAccountWithMoreBalance(Account a1, Account a2)
         {
             if (a1.Balance > a2.Balance)
                 return a1;
             else
                 return a2;
+        }
+
+        //Non static
+        public Account GetAccountWithMoreBalance(Account other)
+        {
+            if (other.Balance > this.Balance)
+                return other;
+            else
+                return this;
         }
     }
 
