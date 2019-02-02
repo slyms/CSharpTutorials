@@ -1,78 +1,40 @@
 ﻿using System;
 
-class Parent
-{
-    public int PubA; //Access from outside the Class
-    private int PriA; //Access from within the Class
-    protected int ProA; //Access as public from Child Class - private for other
-
-    //Constructor Parameterless
-    public Parent()
-    {
-        PubA = 11;
-    }
-
-    //Constructor Parameterlized
-    public Parent(int priA, int proA, int pubA)
-    {
-        PriA = priA;
-        ProA = proA;
-        PubA = pubA;
-    }
-}
-
-class Child : Parent
-{
-    public int PubB;
-    public void Foo()
-    {
-        this.PubA = 1;
-        this.ProA = 1;
-        //PriA = 1; //No access
-
-        Child c = new Child();
-        c.PubA = 1;
-        c.ProA = 1;//Access thru Reference of type Child
-
-        Parent p = new Parent();
-        p.PubA = 1;
-        //p.ProA = 1;//No access thru Reference of type Parent - special case
-    }
-
-    //Constructor Parameterless
-    public Child()
-        : base(0, 0, 0) //Link to specific Parent Class Constructor
-    {
-        PubA = 22;
-    }
-
-    //Constructor Parameterized
-    public Child(int priA, int proA, int pubA, int pubB) //params = from Parent & Child Class
-        : base(priA, proA, pubA) //Pass data to Parent Class Constructor
-    {
-        //PriA = priA; //Protected Variable from Parent Class - all Parent&Child Class Members are allocated memory as one unit, so all Members must be provided with a Constructor
-        //ProA = proA; //Comment <- initialized in Parent Class
-        //PubA = pubA; //Comment <- initialized in Parent Class
-        PubB = pubB; //Thus only Child Member can be initialized in Child Constructor
-    }
-}
-
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Child c;
-        Parent p;
+        Child c, cc;
+        Parent p, pp;
+
+        c = new Child();
+        p = new Child();
+
+        //cc - new Parent(); - Cannot implicitly convert type Parent to Child
+        cc = new Child();
+        pp = new Parent();
+
+        c.ChildReturn();
+        cc.ChildReturn();
+        //p.ChildReturn(); - Parent does not contain a definition for ChildReturn()
+        //pp.ChildReturn(); - Parent does not contain a definition for ChildReturn()
+
+        c.ParentReturn();
+        cc.ParentReturn();
+        p.ParentReturn();
+        pp.ParentReturn();
+
+        //Casting
+        c = (Child) p;
+        //c = (Child) pp; //Invalid casting Exception - pp is referrencing to Object of Class Parent
+        p = c;
+        pp = c;
 
         c = new Child();
 
-        p = c;
-        p = new Child();
-        //Casting
         c = (Child)p;
-
         p = new Parent();
-        //c = (Child)p; //Invalid casting Exception - p is refferencing to Object of Class Parent
+        //c = (Child) p; //Invalid casting Exception - p is referencing to Object of Class Parent
 
         Console.WriteLine(c.PubA);
 
@@ -89,18 +51,24 @@ class Program
         Child cAs;
 
         pAs = new Parent();
-        cAs = pAs as Child;
+        cAs = pAs as Child; //<=> c = p as Child;
 
         Console.WriteLine("cAs == null: " + (cAs == null));
 
         //Is operator
-        if (p is Child) //If p is refferencing to Object of Child or GrandChild (SubClass)
+        if (p is Child) //If p is referencing to Object of Child or GrandChild (SubClass)
+        {
             c = (Child)p;
+            Console.WriteLine("is operator: " + c);
+        }
         else
+        {
             c = null;
+            Console.WriteLine("is operator: " + c);
+        }
 
         //?? operator
-        object a = p ?? pAs; //a = p, unless p is null, then a = pAs
+        object a = p ?? pAs; //a = p; unless p is null, then a = pAs
         //Equivalent of:
         if (p == null)
             a = pAs;
@@ -108,3 +76,73 @@ class Program
             a = p;
     }
 }
+
+class Parent
+{
+    public int PubA; //Access from outside the Class
+    private int PriA; //Access from within the Class
+    protected int ProA; //Access as public from Child Class - private for other
+
+    //Constructor Parameterless
+    public Parent()
+    {
+        PubA = 11;
+    }
+
+    //Constructor Parameterized
+    public Parent(int pubA, int priA, int proA)
+    {
+        PubA = pubA;
+        PriA = priA;
+        ProA = proA;
+    }
+
+    public void ParentReturn()
+    {
+    }
+}
+
+class Child : Parent
+{
+    public int PubB;
+    public void Foo()
+    {
+        this.PubA = 1;
+        this.ProA = 1;
+        //PriA = 1; //private = No access outside Parent Class
+
+        Child c = new Child();
+        c.PubA = 1;
+        c.ProA = 1;//Access thru Reference of type Child
+
+        Parent p = new Parent();
+        p.PubA = 1;
+        //p.ProA = 1;//No access thru Reference of type Parent - special case
+
+        //What does this mean?
+        Parent cp = new Child();
+    }
+
+    //Constructor Parameterless
+    public Child()
+        : base(0, 0, 0) //Link to specific Parent Class Constructor - Child Class Constructor can call any Parent Constructor
+    {
+        PubA = 22;
+    }
+
+    //Passing data from Child Class to Parent
+    //Constructor Parameterized
+    public Child(int pubA, int priA, int proA, int pubB) //All data we want: params = from Parent & Child Class
+        : base(pubA, priA, proA) //Pass data to Parent Class Constructor
+    {
+        //PriA = priA; //Protected Variable from Parent Class - all Parent&Child Class Members are allocated memory as one unit, so all Members must be provided with a Constructor
+        //ProA = proA; //Comment <- initialized in Parent Class
+        //PubA = pubA; //Comment <- initialized in Parent Class
+        PubB = pubB; //Thus only Child Member can be initialized in Child Constructor
+    }
+
+    public void ChildReturn()
+    {
+    }
+}
+

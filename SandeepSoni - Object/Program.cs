@@ -1,5 +1,37 @@
 ﻿using System;
 
+class Program
+{
+    static void Main(string[] args)
+    {
+        //Constructor Default + Object initializers
+        Point pt1 = new Point() { X = 10, Y = 20 };
+
+        //Both print same "Point" - implicitly ToString() is invoked on Object - common functionality of Object Class
+        Console.WriteLine("pt1: " + pt1);
+        Console.WriteLine("pt1.ToString(): " + pt1.ToString());
+
+        Point pt2 = new Point() { X = 10, Y = 20 };
+        //False <- data is same, but Objects are different
+        Console.WriteLine("pt1 == pt2: " + (pt1 == pt2));
+
+        //Equals - compares References, not data 
+        Console.WriteLine("pt1.Equals(pt2) " + pt1.Equals(pt2));
+
+        //If Equals = true, GetHashCode should return: true
+        Console.WriteLine("GetHashCode: " + pt1.GetHashCode() + " " + pt2.GetHashCode());
+
+        Type tp1 = pt1.GetType();
+        Type tp2 = pt2.GetType();
+        Console.WriteLine("tp1 == tp2 " + (tp1 == tp2));
+
+        //Object is not an abstract Class
+        //We can create Object of Object Class - without any specific functionality
+        Object ob = new Object();
+        Console.WriteLine("ob: " + ob);
+    }
+}
+
 class Point : Object
 {
     public int X, Y;
@@ -36,32 +68,3 @@ class Point : Object
         //return base.GetHashCode();
     }
 }
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        //Constructor Default + Object initializers
-        Point pt1 = new Point() { X = 10, Y = 20 };
-        Console.WriteLine(pt1);
-        Console.WriteLine(pt1.ToString());
-
-        Point pt2 = new Point() { X = 10, Y = 20 };
-        //False <- data is same, but Objects are different
-        Console.WriteLine(pt1 == pt2);
-
-        //Equals - compares References, not data 
-        Console.WriteLine(pt1.Equals(pt2));
-
-        //If Equals = true, GetHashCode should return: true
-        Console.WriteLine(pt1.GetHashCode() + " " + pt2.GetHashCode());
-
-        Type tp1 = pt1.GetType();
-        Type tp2 = pt2.GetType();
-        Console.WriteLine(tp1 == tp2);
-
-        Object ob = new Object();
-        Console.WriteLine("ob: " + ob);
-    }
-}
-

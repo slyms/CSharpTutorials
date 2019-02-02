@@ -1,5 +1,26 @@
 ﻿using System;
 
+class BindingDemoProgram
+{
+    static void Main(string[] args)
+    {
+        CParent p = new CChild();
+        p.Foo();
+        p.Koo();
+        p.Doo();
+
+        //Variable is of type Parent - Reference is to Parent Class N
+        //p.N = 10;
+        //Variable - use Child Class thru Variable -> Casting
+        ((CChild)p).N = 10;
+
+        CParent pg = new CGrandChild();
+        pg.Foo();
+        pg.Koo();
+        pg.Doo();
+    }
+}
+
 class CParent
 {
     public int N;
@@ -11,7 +32,7 @@ class CParent
     //Virtual / Override / Abstract
     public virtual void Doo()
     {
-
+        Console.WriteLine("Doo() in CParent");
     }
 
     public virtual void Koo()
@@ -47,7 +68,7 @@ class CChild : CParent
         Console.WriteLine("Koo() in CChild");
     }
 
-    //Method Overriding - - same Method as in Parent, "override" in Child Class
+    //Method Overriding - same Method as in Parent, "override" in Child Class
     public override void Doo()
     {
         Console.WriteLine("Doo() in CChild: Override Parent + Dynamic");
@@ -55,7 +76,7 @@ class CChild : CParent
 
     public override sealed void Too()
     {
-        Console.WriteLine("Too() in CChiled: Override Parent + Cannot be Overrided by CGrandChild");
+        Console.WriteLine("Too() in CChild: Override Parent + Cannot be Overrided by CGrandChild");
     }
 }
 
@@ -71,25 +92,4 @@ class CGrandChild : CChild
 //    {
 //        Console.WriteLine("Too() in CGranChild");
 //    }
-}
-
-class BindingDemoProgram
-{
-    static void Main(string[] args)
-    {
-        CParent p = new CChild();
-        p.Foo();
-        p.Doo();
-        p.Koo();
-
-        //Variable is of type Parent - Reference is to Parent Class N
-        //p.N = 10;
-        //Variable - use Child Class thru Variable -> Casting
-        ((CChild)p).N = 10;
-
-        CParent pg = new CGrandChild();
-        pg.Foo();
-        pg.Doo();
-        pg.Koo();
-    }
 }

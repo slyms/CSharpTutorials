@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandeepSoni - InterfaceExpl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M El-Haj - Tic Tac Toe", "M El-Haj - Tic Tac Toe\M El-Haj - Tic Tac Toe.csproj", "{3BBF6D5F-E463-4E48-9CB7-72F1C6972EBF}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arorra G. - CSharpIn7Days", "Arorra G. - CSharpin7Days\Arorra G. - CSharpIn7Days.csproj", "{33C5CFAB-CFC6-46AC-B790-1DBE62429467}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +149,10 @@ Global
 		{3BBF6D5F-E463-4E48-9CB7-72F1C6972EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BBF6D5F-E463-4E48-9CB7-72F1C6972EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BBF6D5F-E463-4E48-9CB7-72F1C6972EBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33C5CFAB-CFC6-46AC-B790-1DBE62429467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33C5CFAB-CFC6-46AC-B790-1DBE62429467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33C5CFAB-CFC6-46AC-B790-1DBE62429467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33C5CFAB-CFC6-46AC-B790-1DBE62429467}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
