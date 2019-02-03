@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using static System.Console;
-using System.Text;
 using System.Linq;
+using System.Text;
 
 namespace Day02Ex
 {
@@ -60,6 +60,11 @@ namespace Main
             op.OperatorPrecedence();
             /*6. Write a short program to showcase a query expression with the help of contextual keywords.*/
             op.ContextualKeywords();
+            /*7.Write a short program to showcase the importance of the this and base keywords.*/
+            BankClients bankClients = new BankClients();
+            bankClients.ShowNames();
+            Bank bank = new Bank();
+            bank.Pointer();
         }
     }
 
@@ -235,49 +240,93 @@ namespace Main
         }
 
         /*ContextualKeywords:
-         add
-         remove
-         async
-         await
-         dynamic
+         -add
+         -remove
+         -async
+         -await
+         -dynamic
+         -get
+         -global
+         -group
+         -into
+         -partial
+         -set
+         -value
+         -var
+         -when
+         -where
+         -yield
          from
-         get
-         global
-         group
-         into
-         partial
-         set
-         value
-         var
-         when
-         where
-         yield
-         from
-         group
-         into
-         join
-         let
+         -group
+         -into
+         -join
+         -let
          orderby
          select
-         where
+         -where
          ascending
          descending
-         by
+         -by
          in
-         on
-         equals
+         -on
+         -equals
          */
         public void ContextualKeywords()
         {
             string[] autos = new[] { "Peugeot", "Toyota", "Honda", "Fiat"};
-            IEnumerable<string> autosSort =
+            IEnumerable<string> autosSortAsc =
                 from auto in autos
                 orderby auto ascending
                 select auto;
 
-            Write("autosSort: \n");
-            foreach(string auto in autosSort)
+            IEnumerable<string> autosSortDesc =
+                from auto in autos
+                orderby auto descending
+                select auto; 
+
+            Write("autosSortAsc: \n");
+            foreach(string auto in autosSortAsc)
                 Write(auto + "\n");
+
+            Write("autosSortDesc: \n");
+            foreach (string auto in autosSortDesc)
+                Write(auto + "\n");
+        }
+    }
+
+     /*7. Write a short program to showcase the importance of the this and base keywords.*/
+    public class Bank
+    {
+        public string Name = "";
+
+        /* 9. Write a short program to prove that pointer type variable stores the memory of another variable rather than data.*/
+        public void Pointer()
+        {
+            unsafe
+            {
+                int ten = 10;
+                int twenty = 20;
+                int* pointerVariable = &ten;
+                WriteLine("Pointer val: " + ten);
+                WriteLine("Pointer pointerVariable -> ToString(): " + pointerVariable -> ToString());
+                WriteLine("Pointer (int)pointerVariable (=address): " + (int)pointerVariable);
+                //+ cannot be applied to int* and int*
+                //WriteLine(pointerVariable + pointerVariable);
+            }
+        }
+    }
+
+    public class BankClients : Bank
+    {
+        public string Name = "";
+
+        public void ShowNames()
+        {
+            this.Name = "Tesco";
+            base.Name = "Idea Bank";
+
+            WriteLine("Name " + Name);
+            WriteLine("Name " + base.Name);
         }
     }
 }
@@ -287,12 +336,13 @@ namespace Main
  3. Elaborate on C# reserved keywords.
  4. Describe different categories of C# keywords with examples. 
  5. Create a small program to demonstrate the is and as operators.
- 6. Write a short program to showcase a query expression with the help of contextual keywords.
 
- -7. Write a short program to showcase the importance of the this and base keywords.
+ 7. Write a short program to showcase the importance of the this and base keywords.
  8. Define boxing and unboxing with the help of a short program.
- -9. Write a short program to prove that pointer type variable stores the memory of another variable rather than data.
+ 9. Write a short program to prove that pointer type variable stores the memory of another variable rather than data.
  10. Write a short program to showcase the operator precedence order.
+ 
+ -6. Write a short program to showcase a query expression with the help of contextual keywords.
  -11. What is operator overloading? Write a short program to showcase operator overloading in action.
  -12. What are the operators that cannot be overloaded and why?
  -13. Define type conversion with the help of a short program.
