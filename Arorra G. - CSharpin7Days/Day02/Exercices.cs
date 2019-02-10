@@ -65,6 +65,32 @@ namespace Main
             bankClients.ShowNames();
             Bank bank = new Bank();
             bank.Pointer();
+
+            /*11.What is operator overloading? Write a short program to showcase operator overloading in action.*/
+            Fraction a = new Fraction(1, 2);
+            Fraction b = new Fraction(3, 7);
+            Fraction c = new Fraction(2, 3);
+            WriteLine(a * b + c);
+
+            SubMulti x = new SubMulti(4, 5);
+            //x.value = 10;
+            //y.value = 10;
+            //SubMulti z = x + y;
+            WriteLine(x.a + x.b);
+
+            Widget w = new Widget();
+            Widget g = new Widget();
+            w.value = 7;
+            g.value = 8;
+            Widget t = w + g;
+            WriteLine(t.value);
+
+            /*13. Define type conversion with the help of a short program.*/
+            /*14.Write a short program that uses all the available built-in C# types and perform casting using the conversion method (decimal to int conversion can be achieved using var result = Convert.ToInt32(5689.25);).*/
+            op.Conversion();
+
+            /*16. Write a program to elaborate each statement category.*/
+            op.Statements();
         }
     }
 
@@ -239,6 +265,7 @@ namespace Main
             WriteLine("a + (b * c): " + (a + (b * c)));
         }
 
+         /*-6. Write a short program to showcase a query expression with the help of contextual keywords.*/
         /*ContextualKeywords:
          -add
          -remove
@@ -273,7 +300,7 @@ namespace Main
          */
         public void ContextualKeywords()
         {
-            string[] autos = new[] { "Peugeot", "Toyota", "Honda", "Fiat"};
+            string[] autos = new[] { "Peugeot", "Toyota", "Honda", "Fiat" };
             IEnumerable<string> autosSortAsc =
                 from auto in autos
                 orderby auto ascending
@@ -282,19 +309,91 @@ namespace Main
             IEnumerable<string> autosSortDesc =
                 from auto in autos
                 orderby auto descending
-                select auto; 
+                select auto;
 
             Write("autosSortAsc: \n");
-            foreach(string auto in autosSortAsc)
+            foreach (string auto in autosSortAsc)
                 Write(auto + "\n");
 
             Write("autosSortDesc: \n");
             foreach (string auto in autosSortDesc)
                 Write(auto + "\n");
         }
+
+        /*13. Define type conversion with the help of a short program.*/
+        /*14. Write a short program that uses all the available built-in C# types and perform casting using the conversion method (decimal to int conversion can be achieved using var result = Convert.ToInt32(5689.25);).*/
+        public void Conversion()
+        {
+            WriteLine("13. & 14.:");
+
+            sbyte a = -1;
+            short b = -200;
+            int c = 22000000;
+            long d = 30000000;
+            byte e = 1;
+
+            a = (sbyte)b;
+            c = (int)d;
+            e = (byte)a;
+            WriteLine(a + " " + c + " " + e);
+
+            ushort f = 65000;
+            uint g = 30000000;
+            ulong h = 30000000;
+
+            f = (ushort)g;
+            g = (uint)h;
+            WriteLine(f + " " + g);
+
+            float j = 1.5F;
+            double k = 1.555D;
+            decimal l = 1.55555M;
+
+            j = (float)k;
+            k = (double)l;
+            WriteLine(j + " " + k);
+
+            bool m = true;
+            char i = 'c';
+            string s = "s";
+            s = m.ToString();
+            WriteLine(s);
+        }
+
+        /*16. Write a program to elaborate each statement category.*/
+        public void Statements()
+        {
+            string s = "*";
+            WriteLine("Choose one option: ");
+            WriteLine("1. Make x stars");
+            WriteLine("2. Exit");
+            var key = ReadLine();
+            if (key == "1")
+                {
+                    WriteLine("Input no of stars:");
+                    int no = Convert.ToInt32(ReadLine());
+                    for (int i = 0; i <= no; i++)
+                    {   
+                        for(int j = 0; j <= i; j++)
+                        {
+                            Write(s);
+                        }
+                    Write("\n");
+                    }
+                    WriteLine("Press 'q' to quit");
+                }
+            else if (key == "2")
+            {
+                WriteLine("Bye bye!");
+            }
+            else
+            {
+                Statements();
+            }
+        }
     }
 
-     /*7. Write a short program to showcase the importance of the this and base keywords.*/
+    /*7. Write a short program to showcase the importance of the this and base keywords.*/
     public class Bank
     {
         public string Name = "";
@@ -329,6 +428,66 @@ namespace Main
             WriteLine("Name " + base.Name);
         }
     }
+
+    /*11.What is operator overloading? Write a short program to showcase operator overloading in action.*/
+    public class Fraction
+    {
+        int num, den;
+        public Fraction(int num, int den)
+        {
+            this.num = num;
+            this.den = den;
+        }
+
+        // overload operator +
+        public static Fraction operator +(Fraction a, Fraction b)
+        {
+            return new Fraction(a.num * b.den + b.num * a.den,
+               a.den * b.den);
+        }
+
+        // overload operator *
+        public static Fraction operator *(Fraction a, Fraction b)
+        {
+            return new Fraction(a.num * b.num, a.den * b.den);
+        }
+
+        // user-defined conversion from Fraction to double
+        public static implicit operator double(Fraction f)
+        {
+            return (double)f.num / f.den;
+        }
+    }
+
+    //Doesn't work - should multiply when + is used
+    public class SubMulti
+    {
+        public int a, b, value;
+        public SubMulti(int a, int b)
+        {
+            this.a = a;
+            this.b = b;
+        }
+
+        public static SubMulti operator +(SubMulti x)
+        {
+            SubMulti submulti = new SubMulti(x.a, x.b);
+            submulti.value = x.a * x.b * (-1);
+            return submulti;
+        }
+    }
+
+    public class Widget
+    {
+        public int value;
+
+        public static Widget operator +(Widget x, Widget y)
+        {
+            Widget widget = new Widget();
+            widget.value = x.value * y.value;
+            return widget;
+        }
+    }
 }
 /*Exercises
  1. Write a short program to demonstrate that we can use same class name within different namespaces.
@@ -341,28 +500,33 @@ namespace Main
  8. Define boxing and unboxing with the help of a short program.
  9. Write a short program to prove that pointer type variable stores the memory of another variable rather than data.
  10. Write a short program to showcase the operator precedence order.
+ 11. What is operator overloading? Write a short program to showcase operator overloading in action.
+ 12. What are the operators that cannot be overloaded and why?
+ &&, ||, [], (T)x, +=, -=, *=, /=, %= &=, |=, ^=, <<=, >>=, =, ., ?:, ??, ->, =>, f(x), 
+ as, checked, unchecked, default, unchecked, default, delegate, is, new, sizeof, typeof
+ 13. Define type conversion with the help of a short program.
+ 14. Write a short program that uses all the available built-in C# types and perform casting using the conversion method (decimal to int conversion can be achieved using var result = Convert.ToInt32(5689.25);).
+ 15. Define C# statements.
  
- -6. Write a short program to showcase a query expression with the help of contextual keywords.
- -11. What is operator overloading? Write a short program to showcase operator overloading in action.
- -12. What are the operators that cannot be overloaded and why?
- -13. Define type conversion with the help of a short program.
- -14. Write a short program that uses all the available built-in C# types and perform casting using the conversion method (decimal to int conversion can be achieved using var result = Convert.ToInt32(5689.25);).
- -15. Define C# statements.
  -16. Write a program to elaborate each statement category.
  -17. What are jump statements? Write a small program to showcase all jump statements.
  -18. What is an array in C#?
  -19. Write a program and prove that an array is a block of contiguous memory.
  -20. Refer to System.Array class (https://docs.microsoft.com/en-us/dotnet/api/system.array?view=netcore-2.0) and write a short program.
+ 
  -21. Pass an array as a parameter to a method.
  -22. Sort the array.
  -23. Copy the array.
  -24. Refer to the System.String class and explore all its methods and properties with the help of a short program.
  -25. How are string objects immutable? Write a short program to showcase this.
  -26. What are string builders?
+ 
  -27. What is a class?
  -28. What is a structure?
  -29. Write a small program and showcase the differences between a struct and a class. 
  -30. Explain compile-time type and runtime type.
  -31. Write a program to show the difference between compile-time type and runtime type.
  -32. Write a short program to prove that, explicitly, type conversion leads to data loss.
+ 
+ -6. Write a short program to showcase a query expression with the help of contextual keywords.
 */
