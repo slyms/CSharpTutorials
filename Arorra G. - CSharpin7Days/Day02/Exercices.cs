@@ -37,7 +37,7 @@ namespace Main
         public static void Main()
         {
             /*
-            1. Same class name within different namespaces
+            //1. Same class name within different namespaces
             int x, y;
             WriteLine("Enter two numbers: ");
             x = Convert.ToInt32(ReadLine());
@@ -46,27 +46,29 @@ namespace Main
             exercices.ExerciseMethod(x, y);
             Day02Ex_Second.Exercices exercicesSecond = new Day02Ex_Second.Exercices();
             exercicesSecond.ExercisesMethod(x, y);
-            2. Console colors - display vowels as green, and consonants as blue
+            //2. Console colors - display vowels as green, and consonants as blue
             Console.ConsoleOperationExamples();
-            5. Create a small program to demonstrate the is and as operators
+            //5. Create a small program to demonstrate the is and as operators
             GFG.IsOperator();
             GFG.AsOperator();
-            8. Define boxing and unboxing with the help of a short program.
+            //8. Define boxing and unboxing with the help of a short program.
             Exercises box = new Exercises();
             box.Box();
-            10. Write a short program to showcase the operator precedence order.
+            //10. Write a short program to showcase the operator precedence order.
             */
             Exercises op = new Exercises();
             op.OperatorPrecedence();
-            /*6. Write a short program to showcase a query expression with the help of contextual keywords.*/
+            //6. Write a short program to showcase a query expression with the help of contextual keywords.
             op.ContextualKeywords();
-            /*7.Write a short program to showcase the importance of the this and base keywords.*/
+
+            /*
+            //7.Write a short program to showcase the importance of the this and base keywords.
             BankClients bankClients = new BankClients();
             bankClients.ShowNames();
             Bank bank = new Bank();
             bank.Pointer();
 
-            /*11.What is operator overloading? Write a short program to showcase operator overloading in action.*/
+            //11.What is operator overloading? Write a short program to showcase operator overloading in action.
             Fraction a = new Fraction(1, 2);
             Fraction b = new Fraction(3, 7);
             Fraction c = new Fraction(2, 3);
@@ -85,12 +87,32 @@ namespace Main
             Widget t = w + g;
             WriteLine(t.value);
 
-            /*13. Define type conversion with the help of a short program.*/
-            /*14.Write a short program that uses all the available built-in C# types and perform casting using the conversion method (decimal to int conversion can be achieved using var result = Convert.ToInt32(5689.25);).*/
+            //13. Define type conversion with the help of a short program.
+            //14.Write a short program that uses all the available built-in C# types and perform casting using the conversion method (decimal to int conversion can be achieved using var result = Convert.ToInt32(5689.25);).
             op.Conversion();
 
-            /*16. Write a program to elaborate each statement category.*/
+            //16. Write a program to elaborate each statement category.
             op.Statements();
+            //17. What are jump statements? Write a small program to showcase all jump statements.
+            op.JumpStatements();
+            18. What is an array in C#?
+            op.ArrayEx();
+            */
+            //24. Refer to the System.String class and explore all its methods and properties with the help of a short program.
+            op.StringMethods();
+            //29. Write a small program and showcase the differences between a struct and a class.
+            Store clastru = new Store();
+            clastru.ClassAndStruct();
+            /*31. Write a program to show the difference between compile-time type and runtime type.*/
+            Animal a = new Dog(); //new Dog() will execute just at runtime - till then, Compiler only knows that 'a' is Animal
+            Dog d = (Dog)a; //(Dog) cast is needed
+
+            a = new Cat();
+            //d = (Dog)a; //Compiler accepts it - but at run-time: InvalidCastException
+            //32. Write a short program to prove that, explicitly, type conversion leads to data loss.
+            op.TypeConvert();
+
+            ReadLine();
         }
     }
 
@@ -391,6 +413,190 @@ namespace Main
                 Statements();
             }
         }
+
+        /*17. What are jump statements? Write a small program to showcase all jump statements.*/
+        public void JumpStatements()
+        {
+            WriteLine("\nJump Statements \nChoose from below:");
+            WriteLine("1 - Case1 \n2 - Case2 \n3 - Case3");
+            int choice = 0;
+            try
+            {
+                choice = int.Parse(ReadLine());
+            }
+            catch(Exception)
+            {
+                WriteLine("Please insert int value");
+                JumpStatements();
+            }
+
+            switch (choice)
+            {
+                case 1:
+                    WriteLine("Case1");
+                    break;
+                case 2:
+                    WriteLine("Case2");
+                    break;
+                case 3:
+                    WriteLine("Case3");
+                    break;
+                default:
+                    for(int i = 0; i < choice; i++)
+                    {
+                        WriteLine("Default text");
+                        continue;
+                    }
+                    WriteLine("After continue");
+                    break;
+            }
+        }
+
+        /*18. What is an array in C#?*/
+        public void ArrayEx()
+        {
+            WriteLine("\nArray");
+            string[] citiesJap = new string[3] { "Tokio", "Kobe", "Yokohama" };
+            string[] citiesUS = new string[3] { "LA", "Detroit", "San Francisco"};
+            string[] copy = new string[5];
+            WriteLine("Array copy: ");
+            foreach (var element in copy)
+            {
+                WriteLine(element);
+            }
+            Array.Copy(citiesJap, copy, 3);
+            WriteLine("\nArray after Jap copy: ");
+            foreach (var element in copy)
+            {
+                WriteLine(element);
+            }
+            Array.Copy(citiesUS, copy, 3);
+            WriteLine("\nArray after US copy: ");
+            foreach (var element in copy)
+            {
+                WriteLine(element);
+            }
+            ArraySort(copy);
+        }
+
+        public void ArraySort(string[] arrayToSort)
+        {
+            string[] _arrayToSort = arrayToSort;
+            WriteLine("arrayToSort");
+            Array.Sort(arrayToSort);
+            foreach (var element in arrayToSort)
+            {
+                WriteLine(element);
+            }
+        }
+
+        /*24. Refer to the System.String class and explore all its methods and properties with the help of a short program.*/
+
+        public string word = "begin";
+        StringBuilder sb = new StringBuilder();
+
+        public void StringMethods()
+        {
+            // string - immutable; every changes results in new string Object
+            WriteLine("word.GetHashCode(): " + word.GetHashCode());
+            word = "second";
+            WriteLine("word.GetHashCode(): " + word.GetHashCode());
+
+            // StringBuilder - mutable; changes are made on same Object
+            WriteLine("sb.GetHashCode(): " + sb.GetHashCode());
+            sb.Append("begin");
+            WriteLine("sb.GetHashCode(): " + sb.GetHashCode());
+
+            string sentence = "the quick brown fox jumps over the lazy dog";
+        
+            // Split the string into individual words.
+            string[] words = sentence.Split(' ');
+
+            // Aggregate all words from 'sentence;
+            string aggregate = words.Aggregate((start, next) => start + next);
+            WriteLine("aggregate:" + aggregate);
+
+            // Check: all words Contain 'a'
+            bool cond = words.All(param => param.Contains('a'));
+            WriteLine("cond: " + cond);
+
+            // Check: any words Contain 'a'
+            bool result = words.Any(val => val.Contains('b'));
+            WriteLine("result: " + result);
+
+            //word.Append<>;
+            //word.AsEnumerable<>;
+            //word.AsParallel;
+            //word.AsParallel<>;
+            //word.AsQueryable;
+            //word.AsQueryable<>;
+            //word.Average<>;
+            //word.Cast<>;
+            //word.Clone;
+            //word.CompareTo;
+            //word.Concat<>;
+            //word.Contains;
+            //word.Contains<>;
+            //word.CopyTo;
+            //word.Count<>;
+            /*word.DefaultIfEmpty;
+            word.Distinct;
+            word.ElementAt;
+            word.ElementAtOrDefault;
+            word.EndsWith;
+            word.Equals;
+            word.Except;
+            word.First;
+            word.FirstOrDefault;
+            word.GetEnumerator;
+            word.GetType;
+            word.GetTypeCode;
+            word.GroupBy;
+            word.GroupJoin;
+            word.IndexOf;
+            word.IndexOfAny;
+            word.Insert;
+            word.Intersect;
+            word.Last;
+            word.LastIndexOf;
+            word.LastIndexOfAny;
+            word.LastOrDefault;
+            word.Length;
+            word.LongCount;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;
+            word.;*/
+
+        }
+
+        /*32. Write a short program to prove that, explicitly, type conversion leads to data loss.*/
+        public void TypeConvert()
+        {
+            int one = 1;
+            int two = 2;
+            string three = string.Empty;
+
+            three = (one.ToString() + two.ToString());
+            WriteLine("TypeConvert(): " + three);
+        }
     }
 
     /*7. Write a short program to showcase the importance of the this and base keywords.*/
@@ -488,6 +694,58 @@ namespace Main
             return widget;
         }
     }
+
+    /*29. Write a small program and showcase the differences between a struct and a class.*/
+    public class Store : Network
+    {
+        public struct Book : IItem
+        {
+            public string title;
+            public string author;
+        }
+
+        public struct Item
+        {
+            public int price;
+            public string category;
+        }
+
+        public void ClassAndStruct()
+        {
+            Store storeNY = new Store();
+            Store storeLA = storeNY;
+            storeNY.name = "New Yorker";
+            storeLA.name = "LA Stars";
+            WriteLine("storeNY: " + storeNY.name);
+            WriteLine("storeLA: " + storeLA.name);
+            Sale amount2018 = new Sale();
+            Sale amount2019 = amount2018;
+            amount2018.amount = 1000;
+            amount2019.amount = 2000;
+            WriteLine("amount2018: " + amount2018.amount);
+            WriteLine("amount2019: " + amount2019.amount);
+        }
+    }
+
+    public struct Sale
+    {
+        public int amount;
+    }
+
+    public class Network
+    {
+        public string name; 
+    }
+
+    public interface IItem
+    {
+
+    }
+
+    /*31. Write a program to show the difference between compile-time type and runtime type.*/
+    class Animal { }
+    class Dog : Animal { }
+    class Cat : Animal { }
 }
 /*Exercises
  1. Write a short program to demonstrate that we can use same class name within different namespaces.
@@ -507,26 +765,26 @@ namespace Main
  13. Define type conversion with the help of a short program.
  14. Write a short program that uses all the available built-in C# types and perform casting using the conversion method (decimal to int conversion can be achieved using var result = Convert.ToInt32(5689.25);).
  15. Define C# statements.
- 
- -16. Write a program to elaborate each statement category.
- -17. What are jump statements? Write a small program to showcase all jump statements.
- -18. What is an array in C#?
- -19. Write a program and prove that an array is a block of contiguous memory.
- -20. Refer to System.Array class (https://docs.microsoft.com/en-us/dotnet/api/system.array?view=netcore-2.0) and write a short program.
- 
- -21. Pass an array as a parameter to a method.
- -22. Sort the array.
- -23. Copy the array.
+ 16. Write a program to elaborate each statement category.
+ 17. What are jump statements? Write a small program to showcase all jump statements.
+ 18. What is an array in C#?
+ 19. Write a program and prove that an array is a block of contiguous memory.
+ 20. Refer to System.Array class (https://docs.microsoft.com/en-us/dotnet/api/system.array?view=netcore-2.0) and write a short program.
+ 21. Pass an array as a parameter to a method.
+ 22. Sort the array.
+ 23. Copy the array.
+
  -24. Refer to the System.String class and explore all its methods and properties with the help of a short program.
  -25. How are string objects immutable? Write a short program to showcase this.
  -26. What are string builders?
  
- -27. What is a class?
- -28. What is a structure?
- -29. Write a small program and showcase the differences between a struct and a class. 
- -30. Explain compile-time type and runtime type.
- -31. Write a program to show the difference between compile-time type and runtime type.
- -32. Write a short program to prove that, explicitly, type conversion leads to data loss.
+ 27. What is a class?
+ 28. What is a structure?
+ 29. Write a small program and showcase the differences between a struct and a class. 
+ //https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/index
+ 30. Explain compile-time type and runtime type.
+ 31. Write a program to show the difference between compile-time type and runtime type.
+ 32. Write a short program to prove that, explicitly, type conversion leads to data loss.
  
  -6. Write a short program to showcase a query expression with the help of contextual keywords.
 */
