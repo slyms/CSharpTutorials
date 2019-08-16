@@ -150,5 +150,20 @@ namespace AnkproTraining
 
             driver.Quit();
         }
+
+        [TestMethod]
+        public void JavaScriptGetHiddenValue()
+        {
+            IWebDriver driver = new FirefoxDriver();
+            driver.Url = "http://uitestpractice.com/Students/Index";
+            driver.FindElement(By.XPath("//tbody//tr[2]//td[4]//button[1]")).Click();
+
+            string hiddenValue=((IJavaScriptExecutor)driver).ExecuteScript("return document.getElementById('Id').value").ToString();
+            Console.WriteLine($"hiddenValue: {hiddenValue}");
+
+            Thread.Sleep(2000);
+
+            driver.Quit();
+        }
     }
 }

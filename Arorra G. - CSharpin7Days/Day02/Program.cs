@@ -41,11 +41,11 @@ namespace Day02
         public string gunMark = "M9";
     }
 
-
     internal class Program
     {
         private static void Main()
         {
+            /*
             var gunC = new M9();
             WriteLine("gunC.gunName " + gunC.gunName);
             WriteLine("gunC.gunMark " + gunC.gunMark);
@@ -74,18 +74,26 @@ namespace Day02
             WriteLine("gunPG.gunName " + gunPG.gunName);
             //WriteLine(gunPG.gunMark);
 
-
             WriteLine("Day02 - Learn C# in 7-days");
 
-            /*
             SameClassDifferentNamespacesExample();
             ConsoleOperationExamples();
             ConsoleBeepExample();
+            */
+
+            //Don't understand it
+            //IsAsOperatorExample();
+            UsingExample();
+            
+            /*
             Day02CST.CSharpType.Display();
             CheckOverFlowExample();
+            */
+
             SizeofExample();
             TypeofExample();
-            UsingExample();
+            
+            /*
             DynamicTypeExample();
             BoxingUnboxingExample();
             OperatorExample();
