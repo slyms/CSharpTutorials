@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*12. Operator */
+using System;
 using static System.Console;
 
 namespace Day02

@@ -83,18 +83,14 @@ namespace Day02
 
             //Don't understand it
             //IsAsOperatorExample();
-            UsingExample();
+            //UsingExample();
             
             /*
-            Day02CST.CSharpType.Display();
             CheckOverFlowExample();
-            */
-
             SizeofExample();
             TypeofExample();
-            
-            /*
             DynamicTypeExample();
+            Day02CST.CSharpType.Display();
             BoxingUnboxingExample();
             OperatorExample();
             OperatorOverloadingExample();
@@ -111,8 +107,11 @@ namespace Day02
             ForStatementExample();
             ForEachStatementExample();
             BreakStatementExample();
+            
+            */
             ContinueStatementExample();
             ArrayExample();
+            /*
             StringExample();
             StructureExample();
             */
@@ -481,6 +480,8 @@ namespace Day02
                     WriteLine("You need to complete your school first");
                 }
             }
+            else
+                Write("You're smart ;)");
         }
 
         /*20. Switch*/
@@ -531,6 +532,7 @@ namespace Day02
             }
             while (count < length);
         }
+
         /*22. while*/
         private static void WhileStatementExample()
         {
@@ -544,6 +546,7 @@ namespace Day02
                 WriteLine(new string('*', count));
             }
         }
+
         /*23. for*/
         private static void ForStatementExample()
         {
@@ -555,6 +558,7 @@ namespace Day02
                 WriteLine(new string('*', countIndex));
             }
         }
+
         /*24. foreach*/
         private static void ForEachStatementExample()
         {
@@ -579,6 +583,7 @@ namespace Day02
                 WriteLine($"{person.Name}");
             }
         }
+
         /*25. break*/
         private static void BreakStatementExample()
         {
@@ -596,6 +601,7 @@ namespace Day02
             WriteLine("break in switch statement");
             SwitchCaseExample();
         }
+
         /*26. continue / jump*/
         private static void ContinueStatementExample()
         {
