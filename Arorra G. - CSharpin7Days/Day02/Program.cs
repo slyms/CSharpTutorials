@@ -107,9 +107,9 @@ namespace Day02
             ForStatementExample();
             ForEachStatementExample();
             BreakStatementExample();
+            ContinueStatementExample();
             
             */
-            ContinueStatementExample();
             ArrayExample();
             /*
             StringExample();
@@ -675,6 +675,7 @@ namespace Day02
                     }
                 }
             }
+            ReadKey();
         }
 
         /*28. String */
