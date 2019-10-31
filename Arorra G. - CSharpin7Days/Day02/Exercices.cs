@@ -8,7 +8,7 @@ namespace Day02Ex
 {
     public class Exercices
     {
-        public void ExerciseMethod(int x, int y)
+        public void ExercisesMethod(int x, int y)
         {
             int _x=x, _y=y, res;
             res = _x - _y;
@@ -43,7 +43,7 @@ namespace Main
             x = Convert.ToInt32(ReadLine());
             y = Convert.ToInt32(ReadLine());
             Day02Ex.Exercices exercices = new Day02Ex.Exercices();
-            exercices.ExerciseMethod(x, y);
+            exercices.ExercisesMethod(x, y);
             Day02Ex_Second.Exercices exercicesSecond = new Day02Ex_Second.Exercices();
             exercicesSecond.ExercisesMethod(x, y);
             //2. Console colors - display vowels as green, and consonants as blue
@@ -51,16 +51,12 @@ namespace Main
             //5. Create a small program to demonstrate the is and as operators
             GFG.IsOperator();
             GFG.AsOperator();
-            //8. Define boxing and unboxing with the help of a short program.
-            Exercises box = new Exercises();
-            box.Box();
-            //10. Write a short program to showcase the operator precedence order.
             */
-            Exercises op = new Exercises();
-            op.OperatorPrecedence();
             //6. Write a short program to showcase a query expression with the help of contextual keywords.
+            Exercises op = new Exercises();
             op.ContextualKeywords();
 
+            
             /*
             //7.Write a short program to showcase the importance of the this and base keywords.
             BankClients bankClients = new BankClients();
@@ -68,6 +64,12 @@ namespace Main
             Bank bank = new Bank();
             bank.Pointer();
 
+            //8. Define boxing and unboxing with the help of a short program.
+            Exercises box = new Exercises();
+            box.Box();
+            //10. Write a short program to showcase the operator precedence order.
+            
+            op.OperatorPrecedence();
             //11.What is operator overloading? Write a short program to showcase operator overloading in action.
             Fraction a = new Fraction(1, 2);
             Fraction b = new Fraction(3, 7);
@@ -95,15 +97,14 @@ namespace Main
             op.Statements();
             //17. What are jump statements? Write a small program to showcase all jump statements.
             op.JumpStatements();
-            18. What is an array in C#?
+            //18. What is an array in C#?
             op.ArrayEx();
-            */
             //24. Refer to the System.String class and explore all its methods and properties with the help of a short program.
             op.StringMethods();
             //29. Write a small program and showcase the differences between a struct and a class.
             Store clastru = new Store();
             clastru.ClassAndStruct();
-            /*31. Write a program to show the difference between compile-time type and runtime type.*/
+            //31. Write a program to show the difference between compile-time type and runtime type.
             Animal a = new Dog(); //new Dog() will execute just at runtime - till then, Compiler only knows that 'a' is Animal
             Dog d = (Dog)a; //(Dog) cast is needed
 
@@ -111,6 +112,7 @@ namespace Main
             //d = (Dog)a; //Compiler accepts it - but at run-time: InvalidCastException
             //32. Write a short program to prove that, explicitly, type conversion leads to data loss.
             op.TypeConvert();
+            */
 
             ReadLine();
         }
@@ -229,16 +231,16 @@ namespace Main
     {
         public static void IsOperator()
         {
-            P instance1 = new P();
-            P1 instance2 = new P1();
+            P instance = new P();
+            P1 instance1 = new P1();
+            WriteLine("instance is P: " + (instance is P));
+            WriteLine("instance is P1: " + (instance is P1));
+            WriteLine("instance is P2: " + (instance is P2));
+            WriteLine("instance is Object: " + (instance is Object));
             WriteLine("instance1 is P: " + (instance1 is P));
             WriteLine("instance1 is P1: " + (instance1 is P1));
             WriteLine("instance1 is P2: " + (instance1 is P2));
             WriteLine("instance1 is Object: " + (instance1 is Object));
-            WriteLine("instance2 is P: " + (instance2 is P));
-            WriteLine("instance2 is P1: " + (instance2 is P1));
-            WriteLine("instance2 is P2: " + (instance2 is P2));
-            WriteLine("instance2 is Object: " + (instance2 is Object));
         }
 
         public static void AsOperator()
@@ -312,7 +314,7 @@ namespace Main
          -let
          orderby
          select
-         -where
+         where
          ascending
          descending
          -by
@@ -322,24 +324,41 @@ namespace Main
          */
         public void ContextualKeywords()
         {
+            //from, orderby, select, ascending, descending, in, orderby, where
             string[] autos = new[] { "Peugeot", "Toyota", "Honda", "Fiat" };
             IEnumerable<string> autosSortAsc =
                 from auto in autos
+                where auto.Length > 4
                 orderby auto ascending
                 select auto;
 
+            //List<string> cars = new List<string>();
+            //cars[0] = "Audi";
+            //cars[1] = "Vauxhall";
+            //cars[2] = "Maserati";
+
             IEnumerable<string> autosSortDesc =
                 from auto in autos
-                orderby auto descending
+                orderby auto.Length descending
                 select auto;
+
+            var autosGroupBy =
+                from auto in autos
+                group auto by auto.Length into g
+                orderby g.Key descending
+                select g;
 
             Write("autosSortAsc: \n");
             foreach (string auto in autosSortAsc)
                 Write(auto + "\n");
 
-            Write("autosSortDesc: \n");
+            Write("\nautosSortDesc: \n");
             foreach (string auto in autosSortDesc)
                 Write(auto + "\n");
+
+            Write("\nautosGroupBy: \n");
+            foreach (var auto in autosGroupBy)
+                Write(auto.ToString());
         }
 
         /*13. Define type conversion with the help of a short program.*/
@@ -753,6 +772,8 @@ namespace Main
  3. Elaborate on C# reserved keywords.
  4. Describe different categories of C# keywords with examples. 
  5. Create a small program to demonstrate the is and as operators.
+ 
+-6. Write a short program to showcase a query expression with the help of contextual keywords.
 
  7. Write a short program to showcase the importance of the this and base keywords.
  8. Define boxing and unboxing with the help of a short program.
@@ -786,5 +807,4 @@ namespace Main
  31. Write a program to show the difference between compile-time type and runtime type.
  32. Write a short program to prove that, explicitly, type conversion leads to data loss.
  
- -6. Write a short program to showcase a query expression with the help of contextual keywords.
 */

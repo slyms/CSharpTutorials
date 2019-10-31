@@ -107,13 +107,13 @@ namespace Day02
             ForStatementExample();
             ForEachStatementExample();
             BreakStatementExample();
-            
-            */
             ContinueStatementExample();
             ArrayExample();
-            /*
             StringExample();
+            
+            */
             StructureExample();
+            /*
             */
         }
 
@@ -769,7 +769,7 @@ namespace Day02
 
             BookAuthor author = new BookAuthor(name, bookTitle, Convert.ToInt32(age), city, state, country);
             WriteLine($"{author.ToString()}");
-            BookAuthor author1 = author; //copy structure = copy only data as this is not a class
+            BookAuthor author1 = author; //copy structure = copy only data; when class is copied = copy reference
 
             Write("Change author name:");
             var name1 = ReadLine();
