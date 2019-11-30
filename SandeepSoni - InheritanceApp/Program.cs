@@ -36,7 +36,7 @@ class Child : Parent
 
         Child c = new Child();
         c.PubA = 1;
-        c.ProA = 1;
+        c.ProA = 1; //Access thru Reference of type Child
 
         Parent p = new Parent();
         p.PubA = 1;
@@ -55,7 +55,7 @@ class Child : Parent
 
     //Passing data from Child Class to Parent
     //Constructor Parameterized
-    public Child(int pubA, int priA, int proA, int pubB) //All data we want
+    public Child(int pubA, int priA, int proA, int pubB) //All data we want: params = from Parent & Child Class
         : base(pubA, priA, proA) //Pass data to Parent Class Constructor
     {
         //PriA = priA; //Protected Variable from Parent Class - all Parent&Child Class Members are allocated memory as one unit, so all Members must be provided with a Constructor
