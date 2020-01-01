@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4F8751EC-6D91-4567-9FC3-12E07610E6E5}</ProjectGuid>
+    <ProjectGuid>{01D4BDAB-C8C8-4A6B-A45D-90F37272F019}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_101</RootNamespace>
-    <AssemblyName>101</AssemblyName>
+    <RootNamespace>CodeWars</RootNamespace>
+    <AssemblyName>CodeWars</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,12 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BranchesAndLoops.cs" />
-    <Compile Include="Classes.cs" />
-    <Compile Include="HelloWorld.cs" />
-    <Compile Include="IntroductionToClasses.cs" />
-    <Compile Include="ListCollections.cs" />
-    <Compile Include="Numbers.cs" />
+    <Compile Include="8 kyu\CompareWithMargin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

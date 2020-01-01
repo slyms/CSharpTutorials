@@ -19,7 +19,15 @@ namespace CSharpGuide
             BranchesAndLoops branchesAndLoops = new BranchesAndLoops();
             branchesAndLoops.BranchesAndLoopsMethod();
 
+            ListCollections listCollections = new ListCollections();
+            listCollections.ListCollectionsMethod();
+
+
+            var account = new IntroductionToClasses.BankAccount("John Rockefeller", 1000000);
+            Console.WriteLine($"Account {account.Number} was created for {account.Owner} with {account.Balance}$ initial balance");
+
             Console.ReadLine();
+
         }
     }
 }

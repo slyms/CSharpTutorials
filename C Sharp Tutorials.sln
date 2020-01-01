@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnkproTraining - Selenium",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpGuide", "101\CSharpGuide.csproj", "{4F8751EC-6D91-4567-9FC3-12E07610E6E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeWars", "CodeWars\CodeWars.csproj", "{01D4BDAB-C8C8-4A6B-A45D-90F37272F019}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,6 +167,10 @@ Global
 		{4F8751EC-6D91-4567-9FC3-12E07610E6E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F8751EC-6D91-4567-9FC3-12E07610E6E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F8751EC-6D91-4567-9FC3-12E07610E6E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01D4BDAB-C8C8-4A6B-A45D-90F37272F019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01D4BDAB-C8C8-4A6B-A45D-90F37272F019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01D4BDAB-C8C8-4A6B-A45D-90F37272F019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01D4BDAB-C8C8-4A6B-A45D-90F37272F019}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
