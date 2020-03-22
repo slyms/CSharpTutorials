@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpGuide
+namespace CSharpGuide.ProgrammingGuide
 {
-    class Classes
+    public class ProgramProgrammingGuide
     {
+        public static void Main()
+        {
+
+        }
     }
 }

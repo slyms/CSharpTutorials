@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4F8751EC-6D91-4567-9FC3-12E07610E6E5}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_101</RootNamespace>
-    <AssemblyName>101</AssemblyName>
+    <RootNamespace>CSharpGuide</RootNamespace>
+    <AssemblyName>CSharpGuide</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CSharpGuide.Tutorials.ProgramTutorials</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,16 +47,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BranchesAndLoops.cs" />
-    <Compile Include="Classes.cs" />
+    <Compile Include="Classes\BankAccount.cs" />
+    <Compile Include="Classes\ProgramClasses.cs" />
+    <Compile Include="Classes\Transaction.cs" />
+    <Compile Include="Concepts\ProgramConcepts.cs" />
+    <Compile Include="HowToTopics\ProgramHowToTopics.cs" />
+    <Compile Include="ProgrammingGuide\ProgramProgrammingGuide.cs" />
+    <Compile Include="Tour\ProgramTour.cs" />
+    <Compile Include="Tutorials\AdvancedStringInterpolation.cs" />
+    <Compile Include="Tutorials\ProgramTutorials.cs" />
+    <Compile Include="Tutorials\CSharp6.cs" />
     <Compile Include="HelloWorld.cs" />
     <Compile Include="IntroductionToClasses.cs" />
     <Compile Include="ListCollections.cs" />
     <Compile Include="Numbers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tutorials\StringInterpolation.cs" />
+    <Compile Include="WhatsNew\ProgramWhatsNew.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
