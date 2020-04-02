@@ -10,6 +10,8 @@ namespace CSharpGuide.Tutorials
     {
         public static void Main()
         {
+            Console.WriteLine(typeof(string).Assembly.ImageRuntimeVersion);
+
             CSharp6 bu = new CSharp6();
             bu.CSharp6Method();
 

@@ -10,6 +10,9 @@ namespace CSharpGuide.Classes
     {
         static void Main(string[] args)
         {
+            Console.WriteLine();
+            Console.WriteLine("CLASSES");
+
             var account = new BankAccount("Silvestre", 1000);
             Console.WriteLine($"Account {account.Number} was created for {account.Owner} " +
                 $"with {account.Balance} initial balance.");
@@ -42,7 +45,6 @@ namespace CSharpGuide.Classes
             }
 
             Console.WriteLine(account.GetAccountHistory());
-
             Console.ReadKey();
         }
     }

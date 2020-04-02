@@ -10,7 +10,8 @@ namespace CSharpGuide
     {
         public void HelloWorldMethod()
         {
-            Console.WriteLine("HelloWorldMethod");
+            Console.WriteLine("--- HelloWorldMethod ---");
+            Console.WriteLine();
 
             string firstFriend = "Bill";
             string secondFriend = "Maria";
@@ -36,8 +37,10 @@ namespace CSharpGuide
             string songLyrics = "You say goodbye, and I say hello";
             Console.WriteLine(songLyrics.Contains("goodbye"));
             Console.WriteLine(songLyrics.Contains("greetings"));
+
             Console.WriteLine(songLyrics.StartsWith("You"));
-            Console.WriteLine(songLyrics.StartsWith("bye"));
+            var result = songLyrics.EndsWith("bye");
+            Console.WriteLine(result);
         }
     }
 }

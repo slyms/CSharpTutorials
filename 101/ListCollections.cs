@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharpGuide
 {
@@ -11,7 +9,7 @@ namespace CSharpGuide
         public void ListCollectionsMethod()
         {
             var names = new List<string> { "Sly", "Ana", "Felipe" };
-
+            
             names.Add("Maria");
             names.Add("Bill");
             names.Remove("Ana");
@@ -20,7 +18,7 @@ namespace CSharpGuide
 
             Console.WriteLine($"Added {names[2]} and {names[3]} to the list");
 
-            foreach (var name in names)
+            foreach (string name in names)
             {
                 Console.WriteLine($"Hello {name.ToUpper()}!");
             }
@@ -46,6 +44,8 @@ namespace CSharpGuide
                 Console.WriteLine($"The name {names[index]} is at index {index}");
             }
 
+            Console.WriteLine();
+
             //Fibonacci numbers - calculate sum for 20 numbers - Ver 1.
             var fibonacciNumbers = new List<int> { 1, 1 };
 
@@ -57,7 +57,7 @@ namespace CSharpGuide
                 fibonacciNumbers.Add(previous + previous2);
             }
 
-            foreach (var item in fibonacciNumbers)
+            foreach (int item in fibonacciNumbers)
                 Console.WriteLine($"fibonacciNumbers: {item}");
 
             //Fibonacci numbers - calculate sum for 20 numbers - Ver 2. - mine

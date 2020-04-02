@@ -26,6 +26,7 @@ namespace CSharpGuide.Classes
             }
         }
 
+        //Template of a Bank Account
         public BankAccount(string name, decimal initialBalance)
         {
             this.Number = accountNumberSeed.ToString();

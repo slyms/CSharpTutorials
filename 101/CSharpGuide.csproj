@@ -55,6 +55,7 @@
     <Compile Include="ProgrammingGuide\ProgramProgrammingGuide.cs" />
     <Compile Include="Tour\ProgramTour.cs" />
     <Compile Include="Tutorials\AdvancedStringInterpolation.cs" />
+    <Compile Include="Tutorials\ICustomer.cs" />
     <Compile Include="Tutorials\ProgramTutorials.cs" />
     <Compile Include="Tutorials\CSharp6.cs" />
     <Compile Include="HelloWorld.cs" />
@@ -64,6 +65,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tutorials\StringInterpolation.cs" />
+    <Compile Include="Tutorials\UpdateInterface.cs" />
+    <Compile Include="Tutorials\UpdateInterfaces.cs" />
     <Compile Include="WhatsNew\ProgramWhatsNew.cs" />
   </ItemGroup>
   <ItemGroup>
