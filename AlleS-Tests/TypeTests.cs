@@ -4,8 +4,53 @@ using Xunit;
 
 namespace AllenS_CSharpFundamentals.Tests
 {
+    /*Delegate
+    - definition = points to any Method that takes a string & returns a string 
+    -> points to ReturnMEssage()
+    - WriteLogDelegate - Type to define Variables & Fields
+    - WriteLogDelegateCanPointToMethod() calls ReturnMessage()
+    */
+    public delegate string WriteLogDelegate(string logMessage);
+
     public class TypeTests
     {
+        int count = 0;
+
+        [Fact]
+        public void WriteLogDelegateCanPointToMethod()
+        {
+            /*
+            WriteLogDelegate log;
+
+            //Invoke ReturnMessage()
+            log = new WriteLogDelegate(ReturnMessage);
+            //Alt 
+            log = ReturnMessage;
+            
+            var result = log("Hello!");
+            Assert.Equal("Hello!", result);
+            */
+
+            WriteLogDelegate log = ReturnMessage;
+            log += ReturnMessage;
+            log += IncrementCount;
+
+            var result = log("Hello!");
+            Assert.Equal(3, count);
+        }
+
+        string IncrementCount(string message)
+        {
+            count++;
+            return message.ToLower();
+        }
+
+        string ReturnMessage(string message)
+        {
+            count++;
+            return message;
+        }
+
         [Fact]
         public void StringsBehaveLikeValueTypes()
         {
@@ -52,16 +97,16 @@ namespace AllenS_CSharpFundamentals.Tests
             Assert.Equal("Out Name", book1.Name);
         }
 
-        private void GetBookSetNameRef(ref Book book, string name)
+        private void GetBookSetNameRef(ref InMemoryBook book, string name)
         {
             //Variable initialization is not obligatory
-            book = new Book(name);
+            book = new InMemoryBook(name);
         }
 
-        private void GetBookSetNameOut(out Book book, string name)
+        private void GetBookSetNameOut(out InMemoryBook book, string name)
         {
             //Variable initialization is obligatory
-            book = new Book(name);
+            book = new InMemoryBook(name);
         }
 
         [Fact]
@@ -73,9 +118,9 @@ namespace AllenS_CSharpFundamentals.Tests
             Assert.Equal("Book 1", book1.Name);
         }
 
-        private void GetBookSetName(Book book, string name)
+        private void GetBookSetName(InMemoryBook book, string name)
         {
-            book = new Book(name);
+            book = new InMemoryBook(name);
             book.Name = name;
         }
 
@@ -88,7 +133,7 @@ namespace AllenS_CSharpFundamentals.Tests
             Assert.Equal("New Name", book1.Name);
         }
 
-        private void SetName(Book book, string name)
+        private void SetName(InMemoryBook book, string name)
         {
             book.Name = name;
         }
@@ -116,9 +161,9 @@ namespace AllenS_CSharpFundamentals.Tests
             Assert.True(Object.ReferenceEquals(book1, book2));
         }
 
-        Book GetBook(string name)
+        InMemoryBook GetBook(string name)
         {
-            return new Book(name);
+            return new InMemoryBook(name);
         }
     }
 }
