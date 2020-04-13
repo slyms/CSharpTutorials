@@ -55,7 +55,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnkproTraining - Selenium",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllenS-CSharpFundamentals", "AllenS-CSharpFundamentals\AllenS-CSharpFundamentals.csproj", "{A50C09BB-0D90-4A9A-9C22-FB1E9E17671D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlleS-Tests", "AlleS-Tests\AlleS-Tests.csproj", "{9E38EF92-CBA9-4D04-A07D-C01E81CB958A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlleS-Tests", "AlleS-Tests\AlleS-Tests.csproj", "{9E38EF92-CBA9-4D04-A07D-C01E81CB958A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllenS_CSharpFundamentals", "AllenS_CSharpFundamentals\AllenS_CSharpFundamentals.csproj", "{C25AB498-0612-4E18-9AA5-7D8A711B994F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -171,6 +173,10 @@ Global
 		{9E38EF92-CBA9-4D04-A07D-C01E81CB958A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E38EF92-CBA9-4D04-A07D-C01E81CB958A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E38EF92-CBA9-4D04-A07D-C01E81CB958A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C25AB498-0612-4E18-9AA5-7D8A711B994F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C25AB498-0612-4E18-9AA5-7D8A711B994F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C25AB498-0612-4E18-9AA5-7D8A711B994F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C25AB498-0612-4E18-9AA5-7D8A711B994F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
