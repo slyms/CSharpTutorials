@@ -59,7 +59,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlleS-Tests", "AlleS-Tests\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllenS-CSharpProgrammingParadigms", "AllenS-CSharpProgrammingParadigms\AllenS-CSharpProgrammingParadigms.csproj", "{3A72C262-5414-415B-B77F-A714578364DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurataD-CSharpBestPractices", "KurataD-CSharpBestPractices\KurataD-CSharpBestPractices.csproj", "{1DD96515-18B4-4608-8E5A-A4AF0AE9675E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpGuide", "CSharpGuide\CSharpGuide.csproj", "{1113BC9D-B49D-4740-BF3F-107543639441}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -179,10 +179,10 @@ Global
 		{3A72C262-5414-415B-B77F-A714578364DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A72C262-5414-415B-B77F-A714578364DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A72C262-5414-415B-B77F-A714578364DD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1DD96515-18B4-4608-8E5A-A4AF0AE9675E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DD96515-18B4-4608-8E5A-A4AF0AE9675E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DD96515-18B4-4608-8E5A-A4AF0AE9675E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DD96515-18B4-4608-8E5A-A4AF0AE9675E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1113BC9D-B49D-4740-BF3F-107543639441}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1113BC9D-B49D-4740-BF3F-107543639441}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1113BC9D-B49D-4740-BF3F-107543639441}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1113BC9D-B49D-4740-BF3F-107543639441}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
