@@ -10,7 +10,7 @@ namespace AllenS_CSharpFundamentals.Tests
         public void BookCalculatesAnAverageGrade()
         {
             //Arrange
-            var book = new Book("");
+            var book = new InMemoryBook("");
             book.AddGrade(89.1);
             book.AddGrade(90.5);
             book.AddGrade(77.3);
@@ -28,7 +28,7 @@ namespace AllenS_CSharpFundamentals.Tests
         [Fact]
         public void BookAddsGradesFromRange()
         {
-            var book = new Book("");
+            var book = new InMemoryBook("");
 
             var gradesNotInRange = new List<double> { -1.1, -1, 101, 105};
             var gradesInRange = new List<double> { 0, 1, 99, 100};
